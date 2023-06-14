@@ -2,7 +2,7 @@ body {
     font-size: 18px;
     color: #6c767d;
     background-color: #ebf1f5;
-    background-image: url(https://cn01.img.twinkle222.cn/imgs/2020/03/f735a00354a3c282.jpg);
+    background-image: url(https://fhs1986.eu.org/2023/%E6%9D%91%E5%A7%94%E4%BC%9A.55p8aazqg0g0.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -100,6 +100,23 @@ strike {
     box-shadow: 5px -2px 15px 0px rgb(203, 221, 232);
 }
 
+
+
+
+.btn-primary1 {
+    /* box-shadow: 0px 5px 15px 5px rgb(200, 221, 232); */
+    padding: 12px 40px;
+    transition: ease;
+}
+
+.btn-primary1:hover {
+    box-shadow: 5px -2px 15px 0px rgb(200, 221, 232);
+}
+
+
+
+
+
 .btn-secondary {
     /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
     padding: 12px 40px;
@@ -144,7 +161,7 @@ strike {
 
 .photo-bg {
     /* background-image: url(assets/background.jpg); */
-    background-image: url(https://tva1.sinaimg.cn/large/0072Vf1pgy1foxk456b0fj31hc0u0dxu.jpg);
+    background-image: url(https://fhs1986.eu.org);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
