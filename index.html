@@ -1,27 +1,49 @@
-<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8" />
 <title>FHS</title>
 </head>
-
 <body>
-
-<p>FHS提示 安装步骤：
-<br>1、首先 右上角 三个点 用手机自带浏览器 打开
-<br>2、点击下载即可 进行下载安装
-
-</p>
-
-</body>
-
-
-
-
-</html>
-<a href="https://beijing2.obs.zyuncs.com/bazhou-apppackage/antifraud_3.1.0_3362.apk" target="_blank" onclick="window.location.href='b.html';">《慧眼识诈APP》点击下载</a>
-   
-
-
-
+    <p style="font-size: 68px;">
+        <a href="javascript:open_or_download_app();">APP</a>
+        <span id="device"></span>
+    </p>
+    <script type="text/javascript">
+    //<![CDATA[
+    function open_or_download_app() {
+        var device = document.getElementById("device");
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+            device.innerHTML = "ios设备";
+            // 判断useragent，当前设备为ios设备
+            var loadDateTime = new Date();
+        　　// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
+            window.setTimeout(function() {
+                var timeOutDateTime = new Date();
+                if (timeOutDateTime - loadDateTime <2200) {
+                    window.location = "https://beijing2.obs.zyuncs.com/bazhou-apppackage/antifraud_3.1.0_3362.apk";  // APP下载地址
+                } else {
+                    window.close();
+                }
+            },2000);
+             window.location = "apptest://apptest";　　//ios端URL Schema
+        } else if (navigator.userAgent.match(/android/i)) {
+            device.innerHTML = "Android设备";
+            // 判断useragent，当前设备为Android设备
+            // 判断useragent，当前设备为ios设备
+            var loadDateTime = new Date();
+        　　// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
+            window.setTimeout(function() {
+                var timeOutDateTime = new Date();
+                if (timeOutDateTime - loadDateTime < 2200) {
+                    window.location = "https://beijing2.obs.zyuncs.com/bazhou-apppackage/antifraud_3.1.0_3362.apk";   // APP下载地址
+                } else {
+                    window.close();
+                }
+            },2000);
+        　    window.location = "apptest://apptest";　　// Android端URL Schema 
+        } 
+    } 
+    //]]>
+    </script>
+    </body>
+    </html>
 
