@@ -1,61 +1,75 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8" />
-<title>FHS</title>
+<html lang="zh_CN">
+<head>
+    <meta http-equiv="Content-Typecontent="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit">
+    <style type="text/css">
+	 *{margin:0; padding:0;}
+	 a{text-decoration: none;}
+	 img{max-width: 100%; height: auto;}
+	 
+    .download{color: #4D4D4D; padding: 7.2% 6.8% 9.3%;}
+	.download .entry-hd{font-size: 2.4em; font-weight: bold; text-align: center;}
+	.download-btn{padding-top: 9%; text-align: center;}
+	.download-btn .android-btn{ width:auto; margin:0 auto;}
+	
+	.footer-bg{background: #2D2D2D; color: #E4E4E4; padding: 3.4% 2%; text-align: center;}
+	.footer-bg .entry-con{font-size: 1em;}
+	
+	#weixin-tip{display:none; position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} 
+	#weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%; position: relative;}
+	#weixin-tip .close{
+		color: #fff;
+		padding: 5px;
+		font: bold 20px/20px simsun;
+		text-shadow: 0 1px 0 #ddd;
+		position: absolute;
+		top: 0; left: 5%;
+	}
+    </style>
+	<title>慧眼识诈app下载</title>
 </head>
-    
-    <body>
-<p style="font-size:50px; color:red;">FHS提示 安装步骤：</p>
-<p style="font-size:50px; color:red;">1、首先 右上角 三个点 用手机自带浏览器 打开</p>
-<p style="font-size:50px; color:red;">2、点击下载 自动识别Android设备 进行下载安装</p>
-
-</p>
-
+<body class="success">
+	<div class="page-wrap">
+		<div class="download">
+			<h3 class="entry-hd">
+            </h3>
+			<div class="download-btn"><a href="https://beijing2.obs.zyuncs.com/bazhou-apppackage/antifraud_3.1.0_3364.apk" class="android-btn" id="J_weixin"><img src="img/android-btn.png" alt="慧眼识诈APP下载"></a></div>
+		</div>
+		<div class="footer-bg">
+			<p class="entry-con">FHS友情提示：微信用户请在右上角点击三个点 选择“在浏览器中打开”，再点击下载应用</p>
+		</div>
+	</div>
+	<div id="weixin-tip"><p><img src="img/live_weixin.png" alt="微信打开"/><span id="close" title="关闭" class="close">×</span></p></div>
+	<script type="text/javascript">
+	var is_weixin = (function() {
+	    var ua = navigator.userAgent.toLowerCase();
+	    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	})();
+	window.onload = function(){
+		var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+		var btn = document.getElementById('J_weixin');
+		var tip = document.getElementById('weixin-tip');
+		var close = document.getElementById('close');
+		if(is_weixin){
+			btn.onclick = function(e){
+				tip.style.height = winHeight + 'px';
+				tip.style.display = 'block';
+				return false;
+			}
+			close.onclick = function(){
+				tip.style.display = 'none';
+			}
+		}
+	}
+	</script>
 </body>
-<img src="https://picx.zhimg.com/80/v2-8107cfac13d05f4dee357bff147a56f3_720w.jpeg" alt="示例图片" width="600" height="400">
-
-    
-<body>
-    <p style="font-size: 40px;">
-        <a href="javascript:open_or_download_app();">慧眼识诈APP点击下载页面</a>
-        <span id="device"></span>
-    </p>
-    <script type="text/javascript">
-    //<![CDATA[
-    function open_or_download_app() {
-        var device = document.getElementById("device");
-        if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-            device.innerHTML = "ios设备";
-            // 判断useragent，当前设备为ios设备
-            var loadDateTime = new Date();
-        　　// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
-            window.setTimeout(function() {
-                var timeOutDateTime = new Date();
-                if (timeOutDateTime - loadDateTime <2200) {
-                    window.location = "https://beijing2.obs.zyuncs.com/bazhou-apppackage/antifraud_3.1.0_3362.apk";  // APP下载地址
-                } else {
-                    window.close();
-                }
-            },2000);
-             window.location = "apptest://apptest";　　//ios端URL Schema
-        } else if (navigator.userAgent.match(/android/i)) {
-            device.innerHTML = "Android设备";
-            // 判断useragent，当前设备为Android设备
-            // 判断useragent，当前设备为ios设备
-            var loadDateTime = new Date();
-        　　// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
-            window.setTimeout(function() {
-                var timeOutDateTime = new Date();
-                if (timeOutDateTime - loadDateTime < 2200) {
-                    window.location = "https://beijing2.obs.zyuncs.com/bazhou-apppackage/antifraud_3.1.0_3362.apk";   // APP下载地址
-                } else {
-                    window.close();
-                }
-            },2000);
-        　    window.location = "apptest://apptest";　　// Android端URL Schema 
-        } 
-    } 
-    //]]>
-    </script>
-    </body>
-    </html>
-
+</html>
